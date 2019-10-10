@@ -24,6 +24,7 @@ public class ArticlesAdapter extends RecyclerView.Adapter<ArticlesAdapter.ViewHo
         public TextView summary;
         public ImageView bookmarkButton;
         public ImageView shareButton;
+        public ImageView newsPhoto;
         boolean bookmarkButtonState = false;
 
         // We also create a constructor that accepts the entire item row
@@ -37,6 +38,7 @@ public class ArticlesAdapter extends RecyclerView.Adapter<ArticlesAdapter.ViewHo
             summary = itemView.findViewById(R.id.newsDetails);
             bookmarkButton = itemView.findViewById(R.id.newsSaveButton);
             shareButton = itemView.findViewById(R.id.newsShareButton);
+            newsPhoto = itemView.findViewById(R.id.newsPhoto);
 
         }
     }
@@ -72,6 +74,7 @@ public class ArticlesAdapter extends RecyclerView.Adapter<ArticlesAdapter.ViewHo
         // Set item views based on your views and data model
         viewHolder.headline.setText(article.getHeadline());
         viewHolder.summary.setText(article.getSummary());
+        viewHolder.newsPhoto.setImageResource(article.getImageDrawableId());
 
         //init the buttons
         viewHolder.shareButton.setOnClickListener(new View.OnClickListener() {

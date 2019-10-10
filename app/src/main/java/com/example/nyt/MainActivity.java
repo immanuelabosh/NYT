@@ -27,17 +27,6 @@ public class MainActivity extends AppCompatActivity {
         rvArticles.setAdapter(adapter);
         // Set layout manager to position the items
         rvArticles.setLayoutManager(new LinearLayoutManager(this));
-
-        //set the article images
-        // (i could do this in fake database but i want to leave it untouched for now)
-        articles.get(0).setImageDrawableId(R.drawable.russians_diamonds);
-        articles.get(1).setImageDrawableId(R.drawable.france_mourns);
-        articles.get(2).setImageDrawableId(R.drawable.biden);
-        articles.get(3).setImageDrawableId(R.drawable.artist_north_pole);
-        articles.get(4).setImageDrawableId(R.drawable.inmates_escape);
-        articles.get(5).setImageDrawableId(R.drawable.post_happiness_world);
-
-
     }
 }
 

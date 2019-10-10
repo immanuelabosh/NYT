@@ -20,13 +20,12 @@ public class Article {
     private int imageDrawableId;
 
 
-    public Article(int articleID, String headline, String author, String summary, String content, int imageDrawableId) {
+    public Article(int articleID, String headline, String author, String summary, String content) {
         this.articleID = articleID;
         this.headline = headline;
         this.author = author;
         this.summary = summary;
         this.content = content;
-        this.imageDrawableId = imageDrawableId;
     }
 
     public int getArticleID() {

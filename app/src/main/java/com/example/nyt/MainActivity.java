@@ -28,15 +28,6 @@ public class MainActivity extends AppCompatActivity {
         // Set layout manager to position the items
         rvArticles.setLayoutManager(new LinearLayoutManager(this));
 
-        //go to detailed article page when article is clicked
-        adapter.setOnItemClickListener(new ArticlesAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(View view, int articleID) {
-                Intent intent = new Intent(getApplicationContext(), articlePageDetails.class);
-                intent.putExtra("ID", articleID);
-                startActivity(intent);
-            }
-        });
     }
 }
 

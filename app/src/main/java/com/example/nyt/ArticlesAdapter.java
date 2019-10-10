@@ -14,19 +14,6 @@ import java.util.List;
 
 public class ArticlesAdapter extends RecyclerView.Adapter<ArticlesAdapter.ViewHolder> {
 
-    /***** Creating OnItemClickListener *****/
-    // Define listener member variable
-    private OnItemClickListener listener;
-
-    // Define the listener interface
-    public interface OnItemClickListener {
-        void onItemClick(View itemView, int articleID);
-    }
-    // Define the method that allows the parent activity or fragment to define the listener
-    public void setOnItemClickListener(OnItemClickListener listener) {
-        this.listener = listener;
-    }
-
     // Provide a direct reference to each of the views within a data item
     // Used to cache the views within the item layout for fast access
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -46,29 +33,15 @@ public class ArticlesAdapter extends RecyclerView.Adapter<ArticlesAdapter.ViewHo
             // to access the context from any ViewHolder instance.
             super(itemView);
 
-            headline = (TextView) itemView.findViewById(R.id.newsHeadline);
-            summary = (TextView) itemView.findViewById(R.id.newsDetails);
+            headline = itemView.findViewById(R.id.newsHeadline);
+            summary = itemView.findViewById(R.id.newsDetails);
             bookmarkButton = itemView.findViewById(R.id.newsSaveButton);
             shareButton = itemView.findViewById(R.id.newsShareButton);
 
-            // Attach a click listener to the entire row view
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    // Triggers click upwards to the adapter on click
-                    if (listener != null) {
-                        int position = getAdapterPosition();
-                        if (position != RecyclerView.NO_POSITION) {
-                            listener.onItemClick(itemView, mArticle.get(position).getArticleID());
-                        }
-                    }
-                }
-            });
         }
     }
 
     private List<Article> mArticle;
-    private Context context;
 
     public ArticlesAdapter(List<Article> articles) {
         mArticle = articles;
@@ -77,22 +50,24 @@ public class ArticlesAdapter extends RecyclerView.Adapter<ArticlesAdapter.ViewHo
     // Usually involves inflating a layout from XML and returning the holder
     @Override
     public ArticlesAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        context = parent.getContext();
+        Context context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
 
         // Inflate the custom layout
         View articleView = inflater.inflate(R.layout.article, parent, false);
 
         // Return a new holder instance
-        ViewHolder viewHolder = new ViewHolder(articleView);
-        return viewHolder;
+        return new ViewHolder(articleView);
     }
 
     // Involves populating data into the item through holder
     @Override
-    public void onBindViewHolder(ArticlesAdapter.ViewHolder viewHolder, final int position) {
+    public void onBindViewHolder(final ArticlesAdapter.ViewHolder viewHolder, final int position) {
         // Get the data model based on position
         final Article article = mArticle.get(position);
+
+        //get the context
+        final Context context = viewHolder.itemView.getContext();
 
         // Set item views based on your views and data model
         viewHolder.headline.setText(article.getHeadline());
@@ -121,6 +96,17 @@ public class ArticlesAdapter extends RecyclerView.Adapter<ArticlesAdapter.ViewHo
                     bookmark.setImageResource(R.drawable.ic_bookmark_border_black_24dp);
                 }
                 buttonState[0] = !buttonState[0];
+            }
+        });
+
+        // Attach a click listener to the entire row view
+        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //go to detailed article page when article is clicked
+                Intent intent = new Intent(view.getContext(), articlePageDetails.class);
+                intent.putExtra("ID", article.getArticleID());
+                context.startActivity(intent);
             }
         });
 

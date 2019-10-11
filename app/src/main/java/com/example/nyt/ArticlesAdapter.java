@@ -107,7 +107,7 @@ public class ArticlesAdapter extends RecyclerView.Adapter<ArticlesAdapter.ViewHo
             @Override
             public void onClick(View view) {
                 //go to detailed article page when article is clicked
-                Intent intent = new Intent(view.getContext(), articlePageDetails.class);
+                Intent intent = new Intent(view.getContext(), FullArticleView.class);
                 intent.putExtra("ID", article.getArticleID());
                 context.startActivity(intent);
             }

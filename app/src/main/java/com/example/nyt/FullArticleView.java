@@ -8,12 +8,12 @@ import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class articlePageDetails extends AppCompatActivity {
+public class FullArticleView extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_article_detail);
+        setContentView(R.layout.full_article_view);
 
         //get the article id
         Intent intent = getIntent();

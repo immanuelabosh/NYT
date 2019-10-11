@@ -6,6 +6,7 @@
         android:layout_height="wrap_content">
         <ImageView
             android:id="@+id/newsPhoto"
+            android:transitionName="imageMain"
             android:layout_width="386dp"
             android:layout_height="200dp"
             android:layout_marginStart="16dp"
@@ -21,6 +22,7 @@
 
     <TextView
         android:id="@+id/newsHeadline"
+        android:transitionName="title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"

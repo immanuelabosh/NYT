@@ -1,5 +1,6 @@
 package com.example.nyt;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -9,7 +10,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.core.app.ActivityOptionsCompat;
+import androidx.core.util.Pair;
 import androidx.recyclerview.widget.RecyclerView;
+
 import java.util.List;
 
 public class DocumentAdapter extends RecyclerView.Adapter<DocumentAdapter.ViewHolder> {
@@ -107,9 +111,18 @@ public class DocumentAdapter extends RecyclerView.Adapter<DocumentAdapter.ViewHo
             @Override
             public void onClick(View view) {
                 //go to detailed article page when article is clicked
-                Intent intent = new Intent(view.getContext(), DetailedDocumentView.class);
+                Intent intent = new Intent(context, DetailedDocumentView.class);
                 intent.putExtra("articleObject", article);
-                context.startActivity(intent);
+                //animate the common elements (i.e. image and title)
+                Pair<View, String> p1 = Pair.create((View)viewHolder.newsPhoto, "imageMain");
+                Pair<View, String> p2 = Pair.create((View)viewHolder.headline, "title");
+                ActivityOptionsCompat options = ActivityOptionsCompat.
+                        makeSceneTransitionAnimation((Activity)context, p1, p2);
+                //switch activity
+                context.startActivity(intent,options.toBundle());
+
+                //this is supposed to do a crossfade but i think makescenetransition is overriding it
+                //((Activity)context).overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
             }
         });
 

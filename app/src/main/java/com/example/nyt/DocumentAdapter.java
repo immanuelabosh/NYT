@@ -12,7 +12,7 @@ import android.widget.Toast;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
-public class ArticlesAdapter extends RecyclerView.Adapter<ArticlesAdapter.ViewHolder> {
+public class DocumentAdapter extends RecyclerView.Adapter<DocumentAdapter.ViewHolder> {
 
     // Provide a direct reference to each of the views within a data item
     // Used to cache the views within the item layout for fast access
@@ -45,13 +45,13 @@ public class ArticlesAdapter extends RecyclerView.Adapter<ArticlesAdapter.ViewHo
 
     private List<Article> mArticle;
 
-    public ArticlesAdapter(List<Article> articles) {
+    public DocumentAdapter(List<Article> articles) {
         mArticle = articles;
     }
 
     // Usually involves inflating a layout from XML and returning the holder
     @Override
-    public ArticlesAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public DocumentAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         Context context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
 
@@ -64,7 +64,7 @@ public class ArticlesAdapter extends RecyclerView.Adapter<ArticlesAdapter.ViewHo
 
     // Involves populating data into the item through holder
     @Override
-    public void onBindViewHolder(final ArticlesAdapter.ViewHolder viewHolder, final int position) {
+    public void onBindViewHolder(final DocumentAdapter.ViewHolder viewHolder, final int position) {
         // Get the data model based on position
         final Article article = mArticle.get(position);
 
@@ -107,8 +107,8 @@ public class ArticlesAdapter extends RecyclerView.Adapter<ArticlesAdapter.ViewHo
             @Override
             public void onClick(View view) {
                 //go to detailed article page when article is clicked
-                Intent intent = new Intent(view.getContext(), FullArticleView.class);
-                intent.putExtra("ID", article.getArticleID());
+                Intent intent = new Intent(view.getContext(), DetailedDocumentView.class);
+                intent.putExtra("articleObject", article);
                 context.startActivity(intent);
             }
         });

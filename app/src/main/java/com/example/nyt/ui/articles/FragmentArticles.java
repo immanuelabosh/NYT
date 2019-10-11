@@ -1,4 +1,4 @@
-package com.example.nyt;
+package com.example.nyt.ui.articles;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -8,6 +8,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import androidx.fragment.app.Fragment;
+
+import com.example.nyt.Article;
+import com.example.nyt.DocumentAdapter;
+import com.example.nyt.FakeDatabase;
+import com.example.nyt.R;
 
 public class FragmentArticles extends Fragment {
 
@@ -32,7 +37,7 @@ public class FragmentArticles extends Fragment {
         //get all the articles
         articles = FakeDatabase.getAllArticles();
         // Create adapter and pass in the articles
-        ArticlesAdapter adapter = new ArticlesAdapter(articles);
+        DocumentAdapter adapter = new DocumentAdapter(articles);
         // Attach the adapter to the recycler view to populate items
         rvArticles.setAdapter(adapter);
         // Set layout manager to position the items

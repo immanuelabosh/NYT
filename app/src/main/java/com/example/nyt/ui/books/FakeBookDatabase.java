@@ -1,6 +1,7 @@
 package com.example.nyt.ui.books; // <============= CHANGE ME
 
 import com.example.nyt.Article;
+import com.example.nyt.FakeDatabase;
 import com.example.nyt.R;
 
 import java.util.ArrayList;
@@ -22,32 +23,31 @@ import java.util.List;
  */
 public class FakeBookDatabase {
 
-
     /***
      * Retrieves an Article object using the provided id.
      */
     public static Article getArticleById(int articleID) {
-        return articles.get(articleID);
+        return books.get(articleID);
     }
 
     /***
      * Return an ArrayList containing all the articles in the database.
      */
     public static ArrayList<Article> getAllArticles() {
-        return new ArrayList<Article>((List) Arrays.asList(articles.values().toArray()));
+        return new ArrayList<Article>((List) Arrays.asList(books.values().toArray()));
     }
 
 
     // You can ignore everything below this for now.
-    private static final HashMap<Integer, Article> articles = new HashMap<>();
+    private static final HashMap<Integer, Article> books = new HashMap<>();
 
     static {
-        articles.put(1, new Article(
+        books.put(1, new Article(
                 1,
-                "Diamonds, Warlords and Mercenaries: Russia’s New Playbook in Africa",
-                "Dionne Searcey",
-                "After meddling in the 2016 American election, Russia is using similar tactics in the Central African Republic. But as it sows political chaos, this time it is also seeking diamonds.",
-                "BANGUI, Central African Republic — The dealer pulled back a shiny pink curtain and sprinkled the contents of two white envelopes across his desk: sparkling diamonds, more than 100 of them.\n" +
+                "The Water Dancer",
+                "Ta-Nehisi Coates",
+                "The 12th book in the Virgil Flowers series. A fight between university departments turns deadly.",
+                "BOOK BANGUI, Central African Republic — The dealer pulled back a shiny pink curtain and sprinkled the contents of two white envelopes across his desk: sparkling diamonds, more than 100 of them.\n" +
                         "\n" +
                         "Some gems are sold legally, he explained. But many are trafficked by rebels who fight over the mines, adding fuel to a six-year uprising that has killed thousands and displaced more than a million people here in the Central African Republic.\n" +
                         "\n" +
@@ -56,11 +56,11 @@ public class FakeBookDatabase {
                         "Russian mercenaries have fanned out across the nation to train local soldiers. A former Russian spy has been installed by the Central African president as his top security adviser. Russians shuttled warlords to peace talks with the government, helping lead to a deal with more than a dozen armed groups to stop fighting.",
                 R.drawable.russians_diamonds
         ));
-        articles.put(2, new Article(
+        books.put(2, new Article(
                 2,
-                "Biden’s Digital Ads Are Disappearing. ‘Not a Good Sign,’ Strategists Say.",
+                "BOOK Biden’s Digital Ads Are Disappearing. ‘Not a Good Sign,’ Strategists Say.",
                 "Shane Goldmacher",
-                "In a race where many voters are following politics online, Mr. Biden’s pullback is a striking and potentially worrisome sign about his appeal among the digitally active.",
+                "BOOK In a race where many voters are following politics online, Mr. Biden’s pullback is a striking and potentially worrisome sign about his appeal among the digitally active.",
                 "Joseph R. Biden Jr.’s presidential campaign has sharply scaled back his online advertising, cutting spending so severely since August that he is now investing only a fraction of what his top rivals are on Facebook and Google, the two dominant internet platforms.\n" +
                         "\n" +
                         "In a race where many voters are following politics on their smartphones, Mr. Biden’s pullback is an unusual and potentially worrisome sign about his appeal among the Democratic activists, young people and donors who are especially engaged on social media. Candidates rarely withdraw so much money from their online campaigns unless they are seeing weak results in online fund-raising, according to interviews with digital strategists.\n" +
@@ -69,12 +69,12 @@ public class FakeBookDatabase {
                 R.drawable.biden
         ));
 
-        articles.put(3, new Article(
+        books.put(3, new Article(
                 3,
-                "France Marks a Day of Mourning for Jacques Chirac",
-                "Aurelien Breeden",
-                "PARIS — World leaders and dignitaries gathered in Paris on Monday as France marked a national day of mourning for Jacques Chirac, the former French president who died last week.",
-                "After Mr. Chirac’s family met privately on Monday morning, President Emmanuel Macron presided over a military ceremony in his honor in the courtyard of the Invalides monument in central Paris.\n" +
+                "BOOK France Marks a Day of Mourning for Jacques Chirac",
+                "BOOK Aurelien Breeden",
+                "BOOK PARIS — World leaders and dignitaries gathered in Paris on Monday as France marked a national day of mourning for Jacques Chirac, the former French president who died last week.",
+                "BOOK After Mr. Chirac’s family met privately on Monday morning, President Emmanuel Macron presided over a military ceremony in his honor in the courtyard of the Invalides monument in central Paris.\n" +
                         "\n" +
                         "A military band played the Marseillaise, France’s national anthem, before Mr. Chirac’s coffin, which was draped in the red, white and blue French flag, as a somber-looking Mr. Macron stood by.\n" +
                         "A funeral procession then brought the coffin to the Saint-Sulpice church, about a mile east, where former French presidents and dozens of French officials and politicians gathered for a religious service.\n" +
@@ -83,12 +83,12 @@ public class FakeBookDatabase {
                 R.drawable.france_mourns
         ));
 
-        articles.put(4, new Article(
+        books.put(4, new Article(
                 4,
-                "4 Inmates Escape From Ohio Jail After Overpowering Guards",
-                "Neil Vigdor",
-                "The escapees had help from at least one individual on the outside, the authorities said.",
-                "Four inmates who are considered “extremely dangerous” escaped from a county jail in Ohio early Sunday morning after overpowering two guards, the authorities said.\n" +
+                "BOOK 4 Inmates Escape From Ohio Jail After Overpowering Guards",
+                "BOOK Neil Vigdor",
+                "BOOK The escapees had help from at least one individual on the outside, the authorities said.",
+                "BOOK Four inmates who are considered “extremely dangerous” escaped from a county jail in Ohio early Sunday morning after overpowering two guards, the authorities said.\n" +
                         "\n" +
                         "The inmates used a homemade weapon known as a shank and stole the keys to a corrections officer’s vehicle, which was used in the first part of their escape from the Gallia County Jail, Sheriff Matt Champlin said at a news conference.\n" +
                         "\n" +
@@ -102,12 +102,12 @@ public class FakeBookDatabase {
                 R.drawable.inmates_escape
         ));
 
-        articles.put(5, new Article(
+        books.put(5, new Article(
                 5,
-                "The Artist Creating a New Mythology for the North Pole",
-                "Tess Thackara",
-                "Inspired by her own journey to the Arctic Circle, Himali Singh Soin upends traditional stories of exploration in her new commission for Frieze.",
-                "In her sunlit live-work space overlooking Brick Lane in East London, the artist Himali Singh Soin is spinning a narrative about the farthest reaches of our planet. Singh Soin, a poet and artist from north-central India, has spent the past couple of years contemplating, among other things, the earth’s polar caps. “It’s a blank screen to project so much on it, it’s almost asking for hyperbole and fantasy,” she says. “These two spaces seem like the closest to outer space.”\n" +
+                "BOOK The Artist Creating a New Mythology for the North Pole",
+                "BOOK Tess Thackara",
+                "BOOK Inspired by her own journey to the Arctic Circle, Himali Singh Soin upends traditional stories of exploration in her new commission for Frieze.",
+                "BOOK In her sunlit live-work space overlooking Brick Lane in East London, the artist Himali Singh Soin is spinning a narrative about the farthest reaches of our planet. Singh Soin, a poet and artist from north-central India, has spent the past couple of years contemplating, among other things, the earth’s polar caps. “It’s a blank screen to project so much on it, it’s almost asking for hyperbole and fantasy,” she says. “These two spaces seem like the closest to outer space.”\n" +
                         "\n" +
                         "Singh Soin is primarily a writer of poetry and art criticism, but her language also spills off the page and into immersive audiovisual environments, film and spoken-word performances that often dwell on the environment, issues of identity and the nature of deep time. She’s made recent appearances in exhibitions and performances at Somerset House, the Serpentine Gallery and Whitechapel Gallery in London but is lesser known to audiences outside the United Kingdom. With a new commission from Frieze, that looks set to change.\n" +
                         "\n" +
@@ -115,12 +115,12 @@ public class FakeBookDatabase {
                 R.drawable.artist_north_pole
         ));
 
-        articles.put(6, new Article(
+        books.put(6, new Article(
                 6,
-                "Are We Living in a Post-Happiness World?",
-                "Laura M. Holson",
-                "With happiness harder to come by these days, people are grasping at any moment of joy they can get.",
-                "Joy, it seems, is everywhere these days.\n" +
+                "BOOK Are We Living in a Post-Happiness World?",
+                "BOOK Laura M. Holson",
+                "BOOK With happiness harder to come by these days, people are grasping at any moment of joy they can get.",
+                "BOOK Joy, it seems, is everywhere these days.\n" +
                         "\n" +
                         "It is used to sell boxes at Ikea. It is included in ads for drinks at McDonald’s and as a prescriptive for female hygiene. There are T-shirts that tout joy as “an act of resistance.” There is the “Chasing Joy” podcast. And a number of books are being published this year devoted to joyful living, including marriage, productivity, even how to live more like Hugh Jackman.\n" +
                         "\n" +

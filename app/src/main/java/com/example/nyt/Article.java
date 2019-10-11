@@ -1,9 +1,11 @@
 package com.example.nyt; // <============= CHANGE ME
 
+import java.io.Serializable;
+
 /***
  * Model class for news articles. This should be 100% familiar to you.
  */
-public class Article {
+public class Article implements Serializable {
 
     // unique identifier of an article
     private int articleID;

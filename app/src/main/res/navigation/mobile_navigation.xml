@@ -13,13 +13,13 @@
 
     <fragment
         android:id="@+id/navigation_books"
-        android:name="com.example.nyt.FragmentArticles"
+        android:name="com.example.nyt.ui.books.FragmentBooks"
         android:label="@string/title_books"
         tools:layout="@layout/fragment_articles" />
 
     <fragment
         android:id="@+id/navigation_profile"
-        android:name="com.example.nyt.FragmentArticles"
+        android:name="com.example.nyt.ui.profile.FragmentProfile"
         android:label="@string/title_profile"
         tools:layout="@layout/fragment_articles" />
 </navigation>

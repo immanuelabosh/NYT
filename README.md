@@ -1,6 +1,7 @@
 # NYT
 
 16/10 - Complete up to Week 5 without Nav host
+  - **ask about app:layout_behavior**
   - Updated to use methods from slides rather than templates
   - Using bottom nav view + framelayout rather than nav host fragment
   - added fade transition to fragments

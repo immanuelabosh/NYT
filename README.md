@@ -1,5 +1,14 @@
 # NYT
 
+16/10 - Complete up to Week 5 without Nav host
+  - Updated to use methods from slides rather than templates
+  - Using bottom nav view + framelayout rather than nav host fragment
+  - added fade transition to fragments
+  - decided to retain state when switching fragments
+  - added back button handling (switch to article fragment on back press)
+
+---
+
 11/10 - Complete up to week 5.
 
 ##### Note 

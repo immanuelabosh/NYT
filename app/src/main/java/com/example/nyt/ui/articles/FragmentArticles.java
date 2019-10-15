@@ -32,7 +32,7 @@ public class FragmentArticles extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         // Setup any handles to view objects here
         RecyclerView rvArticles = view.findViewById(R.id.recycler);
-        //improve scrolling performance
+        //improve    scrolling performance
         //rvArticles.setHasFixedSize(true);
         //get all the articles
         articles = FakeDatabase.getAllArticles();

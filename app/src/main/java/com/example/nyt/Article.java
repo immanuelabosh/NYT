@@ -1,4 +1,4 @@
-package com.example.nyt; // <============= CHANGE ME
+package com.example.nyt;
 
 import java.io.Serializable;
 

@@ -1,6 +1,8 @@
 # NYT
 
 16/10 - This branch contains the navbar code from the template. 
+- it uses the newer nav_host_fragment rather than a framelayout + bottom nav bar
+  - (this lets you have seperate backstacks per fragment)
 - The template used a navigation layout to configure the navbar 
 - see @navigation/mobile_navigation.xml and mainactivity.java for changes
 

@@ -1,5 +1,10 @@
 # NYT
 
+16/10 - This branch contains the navbar code from the template. 
+- The template used a navigation layout to configure the navbar 
+- see @navigation/mobile_navigation.xml and mainactivity.java for changes
+
+---
 11/10 - Complete up to week 5.
 
 ##### Note 

@@ -1,4 +1,6 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.greensopinion.gradle-android-eclipse'
+apply plugin: 'eclipse'
 
 android {
     compileSdkVersion 29
@@ -36,4 +38,21 @@ dependencies {
     androidTestImplementation 'androidx.test:runner:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
+}
+buildscript {
+    repositories {
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+    dependencies {
+        classpath "gradle.plugin.com.greensopinion.gradle-android-eclipse:android-eclipse:0.2.2"
+    }
+}
+
+eclipse {
+    classpath {
+        plusConfigurations += [ configurations.compile, configurations.testCompile ]
+        downloadSources = true
+    }
 }

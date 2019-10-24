@@ -6,18 +6,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import java.util.ArrayList;
-import java.util.List;
 
 import androidx.fragment.app.Fragment;
 
-import com.example.nyt.Article;
 import com.example.nyt.DocumentAdapter;
 import com.example.nyt.FakeAPI;
 import com.example.nyt.R;
-import com.example.nyt.model.ArticleModel;
 import com.example.nyt.model.NYTArticleResponse;
-import com.google.gson.Gson;
 
 public class FragmentArticles extends Fragment {
 
@@ -39,22 +34,9 @@ public class FragmentArticles extends Fragment {
         //improve scrolling performance
         rvArticles.setHasFixedSize(true);
         //get all the articles
-        ArrayList<Article> articles = new ArrayList<>();
         NYTArticleResponse NYTResponse = NYTArticleResponse.parseJSON(FakeAPI.getMostViewedStoriesJsonString());
-        for(ArticleModel object: NYTResponse.getArticles() ){
-            Article articleObject = new Article(
-                    object.getId(),
-                    object.getTitle(),
-                    object.getByline(),
-                    object.getAbstract(),
-                    object.getUrl(),
-                    object.getPublishedDate(),
-                    object.getMedia().get(0).getMediaMetadata().get(2).getUrl()
-            );
-            articles.add(articleObject);
-        }
         // Create adapter and pass in the articles
-        DocumentAdapter adapter = new DocumentAdapter(articles);
+        DocumentAdapter adapter = new DocumentAdapter(NYTResponse.getArticleList());
         // Attach the adapter to the recycler view to populate items
         rvArticles.setAdapter(adapter);
         // Set layout manager to position the items

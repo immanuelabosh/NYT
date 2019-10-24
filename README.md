@@ -2,6 +2,7 @@
 
 24/10 - complete up to week 6
   - added json for books and articles
+  - modified models classes so that i can just grab a list of articles
 
 ---
 

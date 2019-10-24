@@ -17,8 +17,7 @@
             android:contentDescription="TODO"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/news_headline_photo" />
+            app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/newsHeadline"

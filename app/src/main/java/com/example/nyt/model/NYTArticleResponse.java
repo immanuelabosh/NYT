@@ -1,5 +1,6 @@
 package com.example.nyt.model;
 
+import com.example.nyt.Article;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -15,7 +16,7 @@ public class NYTArticleResponse {
         results = new ArrayList<ArticleModel>();
     }
 
-    public List<ArticleModel> getArticles() {
+    public List<ArticleModel> getArticleModels() {
         return results;
     }
 
@@ -23,6 +24,13 @@ public class NYTArticleResponse {
         Gson gson = new GsonBuilder().create();
         NYTArticleResponse nytArticleResponse = gson.fromJson(response, NYTArticleResponse.class);
         return nytArticleResponse;
+    }
+    public List<Article> getArticleList() {
+        ArrayList<Article> articles = new ArrayList<>();
+        for (ArticleModel object: this.getArticleModels()){
+            articles.add(object.getArticleObject());
+        }
+        return articles;
     }
 
 }

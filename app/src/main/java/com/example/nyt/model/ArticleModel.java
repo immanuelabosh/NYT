@@ -1,6 +1,8 @@
 package com.example.nyt.model;
 
 import java.util.List;
+
+import com.example.nyt.Article;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -48,6 +50,18 @@ public class ArticleModel {
     @SerializedName("uri")
     @Expose
     private String uri;
+
+    public Article getArticleObject(){
+        return new Article(
+                this.getId(),
+                this.getTitle(),
+                this.getByline(),
+                this.getAbstract(),
+                this.getUrl(),
+                this.getPublishedDate(),
+                this.getMedia().get(0).getMediaMetadata().get(2).getUrl()
+        );
+    }
 
     public String getUrl() {
         return url;

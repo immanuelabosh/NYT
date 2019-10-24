@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+
 public class DetailedDocumentView extends AppCompatActivity {
 
     @Override
@@ -30,7 +32,6 @@ public class DetailedDocumentView extends AppCompatActivity {
         headline.setTypeface(null, Typeface.BOLD);
         summary.setText(articleObject.getContent());
         author.setText("by " + articleObject.getAuthor());
-        image.setImageResource(articleObject.getImageDrawableId());
-
+        Glide.with(getApplicationContext()).load(articleObject.getImageDrawableURL()).into(image);
     }
 }

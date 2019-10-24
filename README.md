@@ -1,5 +1,10 @@
 # NYT
 
+24/10 - complete up to week 6
+  - added json for books and articles
+
+---
+
 16/10 - Complete up to Week 5 without Nav host
   - **ask about app:layout_behavior**
   - Updated to use methods from slides rather than templates

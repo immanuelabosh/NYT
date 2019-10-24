@@ -14,6 +14,10 @@ import androidx.core.app.ActivityOptionsCompat;
 import androidx.core.util.Pair;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+
+import org.w3c.dom.Text;
+
 import java.util.List;
 
 public class DocumentAdapter extends RecyclerView.Adapter<DocumentAdapter.ViewHolder> {
@@ -26,6 +30,8 @@ public class DocumentAdapter extends RecyclerView.Adapter<DocumentAdapter.ViewHo
         // for any view that will be set as you render a row
         public TextView headline;
         public TextView summary;
+        public TextView author;
+        public TextView publishDate;
         public ImageView bookmarkButton;
         public ImageView shareButton;
         public ImageView newsPhoto;
@@ -40,6 +46,8 @@ public class DocumentAdapter extends RecyclerView.Adapter<DocumentAdapter.ViewHo
 
             headline = itemView.findViewById(R.id.newsHeadline);
             summary = itemView.findViewById(R.id.newsDetails);
+            publishDate = itemView.findViewById(R.id.newsTimeAgo);
+            author = itemView.findViewById(R.id.byline);
             bookmarkButton = itemView.findViewById(R.id.newsSaveButton);
             shareButton = itemView.findViewById(R.id.newsShareButton);
             newsPhoto = itemView.findViewById(R.id.newsPhoto);
@@ -78,7 +86,9 @@ public class DocumentAdapter extends RecyclerView.Adapter<DocumentAdapter.ViewHo
         // Set item views based on your views and data model
         viewHolder.headline.setText(article.getHeadline());
         viewHolder.summary.setText(article.getSummary());
-        viewHolder.newsPhoto.setImageResource(article.getImageDrawableId());
+        viewHolder.publishDate.setText(article.getPublished_date());
+        viewHolder.author.setText(article.getAuthor());
+        Glide.with(context).load(article.getImageDrawableURL()).into(viewHolder.newsPhoto);
 
         //init the buttons
         viewHolder.shareButton.setOnClickListener(new View.OnClickListener() {

@@ -13,7 +13,7 @@ public class NYTArticleResponse {
 
     // public constructor is necessary for collections
     public NYTArticleResponse() {
-        results = new ArrayList<ArticleModel>();
+        results = new ArrayList<>();
     }
 
     public List<ArticleModel> getArticleModels() {

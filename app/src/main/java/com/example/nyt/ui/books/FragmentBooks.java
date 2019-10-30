@@ -8,10 +8,19 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.fragment.app.Fragment;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.example.nyt.DocumentAdapter;
 import com.example.nyt.FakeAPI;
 import com.example.nyt.R;
 import com.example.nyt.model.NYTArticleResponse;
+import com.example.nyt.model.VolleyJsonGetter;
+
+import java.util.ArrayList;
 
 public class FragmentBooks extends Fragment {
 

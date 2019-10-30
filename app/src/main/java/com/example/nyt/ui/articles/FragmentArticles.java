@@ -13,6 +13,7 @@ import com.example.nyt.DocumentAdapter;
 import com.example.nyt.FakeAPI;
 import com.example.nyt.R;
 import com.example.nyt.model.NYTArticleResponse;
+import com.example.nyt.model.VolleyJsonGetter;
 
 public class FragmentArticles extends Fragment {
 
@@ -34,14 +35,17 @@ public class FragmentArticles extends Fragment {
         //improve scrolling performance
         rvArticles.setHasFixedSize(true);
         //get all the articles
-        NYTArticleResponse NYTResponse = NYTArticleResponse.parseJSON(FakeAPI.getMostViewedStoriesJsonString());
-        // Create adapter and pass in the articles
-        DocumentAdapter adapter = new DocumentAdapter(NYTResponse.getArticleList());
-        // Attach the adapter to the recycler view to populate items
-        rvArticles.setAdapter(adapter);
-        // Set layout manager to position the items
-        rvArticles.setLayoutManager(new LinearLayoutManager(view.getContext()));
-
+        String url = "https://api.nytimes.com/svc/topstories/v2/technology.json?api-key=" + getContext().getString(R.string.key);
+        String json = VolleyJsonGetter.getJsonString(url, getContext());
+        if (json!=null) {
+            NYTArticleResponse NYTResponse = NYTArticleResponse.parseJSON(json);
+            // Create adapter and pass in the articles
+            DocumentAdapter adapter = new DocumentAdapter(NYTResponse.getArticleList());
+            // Attach the adapter to the recycler view to populate items
+            rvArticles.setAdapter(adapter);
+            // Set layout manager to position the items
+            rvArticles.setLayoutManager(new LinearLayoutManager(view.getContext()));
+        }
     }
 }
 

@@ -1,5 +1,12 @@
 # NYT
 
+31/10 - complete up to week 7
+  - used volley to get news from nyt api
+  - get the largest image possible
+  - still no dedicated books class, might have to make one? or use the books list in the articles
+
+---
+
 24/10 - complete up to week 6
   - added json for books and articles
   - modified models classes so that i can just grab a list of articles

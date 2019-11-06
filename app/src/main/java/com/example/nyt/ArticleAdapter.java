@@ -76,9 +76,15 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ArticleV
         });
 
 //        holder.articleImageView.setImageResource(articleAtPosition.getImageDrawableId());
-        if (articleAtPosition.getMedia() != null) {
-            String imageUrl = articleAtPosition.getMedia()[0].getMedia_metadata()[0].getUrl();
-            Glide.with(holder.view.getContext()).load(imageUrl).into(holder.articleImageView);
+        try {
+            //i wrapped this in a try catch bcos the null check wasnt working
+            if (articleAtPosition.getMedia() != null) {
+                String imageUrl = articleAtPosition.getMedia()[0].getMedia_metadata()[0].getUrl();
+                Glide.with(holder.view.getContext()).load(imageUrl).into(holder.articleImageView);
+            }
+        }catch (ArrayIndexOutOfBoundsException e){
+            //if you cant find an image, use this image of a cloud with a line through it instead
+            holder.articleImageView.setImageResource(R.drawable.ic_cloud_off_black_24dp);
         }
     }
 

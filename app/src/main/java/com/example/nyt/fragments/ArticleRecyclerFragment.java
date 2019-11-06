@@ -1,6 +1,7 @@
 package com.example.nyt.fragments;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -52,6 +53,9 @@ public class ArticleRecyclerFragment extends Fragment {
         Response.Listener<String> responseListener = new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
+                //this is because NYT when it doesn't have any media returns "" instead of []
+                //this makes gson unhappy because it expects am array and gets a string instead
+                response = response.replace("media\":\"\"", "media\":[]");
                 Gson gson = new Gson();
                 TopStoriesResponse topStoriesResponse = gson.fromJson(response, TopStoriesResponse.class);
                 articleAdapter.setData(topStoriesResponse.results);

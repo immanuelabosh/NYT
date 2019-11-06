@@ -18,9 +18,9 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.nyt.ArticleAdapter;
+import com.example.nyt.AppDatabase;
 import com.example.nyt.BookAdapter;
-import com.example.nyt.FakeAPI;
+import com.example.nyt.BookDao;
 import com.example.nyt.FakeDatabase;
 import com.example.nyt.R;
 import com.example.nyt.model.BestsellerList;
@@ -28,7 +28,6 @@ import com.example.nyt.model.BestsellerListResponse;
 import com.example.nyt.model.Book;
 import com.google.gson.Gson;
 
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -54,6 +53,8 @@ public class BookRecyclerFragment extends Fragment {
         recyclerView.setLayoutManager(layoutManager);
 
         final BookAdapter bookAdapter = new BookAdapter();
+
+        final AppDatabase db = AppDatabase.getInstance(getContext());
 
         // Start Volley stuff
         // 1. Create request queue.
@@ -92,9 +93,9 @@ public class BookRecyclerFragment extends Fragment {
                 List<Book> bestsellers = bestsellerList.getBooks();
 
                 // I save my results to the database so I can retrieve it later in my other activities.
-                FakeDatabase.saveBooksToFakeDatabase(bestsellers);
+                db.bookDao().insert(bestsellers);
 
-                bookAdapter.setData(bestsellers);
+                bookAdapter.setData(db.bookDao().getAllBooks());
                 recyclerView.setAdapter(bookAdapter);
 
                 // It is a good idea to include this line after we are done with the requestQueue.

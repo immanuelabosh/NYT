@@ -1,7 +1,6 @@
 package com.example.nyt.fragments;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,14 +17,11 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.nyt.ArticleAdapter;
-import com.example.nyt.FakeAPI;
 import com.example.nyt.FakeDatabase;
 import com.example.nyt.activities.MainActivity;
 import com.example.nyt.R;
 import com.example.nyt.model.TopStoriesResponse;
 import com.google.gson.Gson;
-
-import java.util.ArrayList;
 
 
 public class ArticleRecyclerFragment extends Fragment {

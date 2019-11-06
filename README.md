@@ -1,5 +1,8 @@
 # NYT
 
+DEPRECIATED
+---
+
 31/10 - complete up to week 7
   - used volley to get news from nyt api
   - get the largest image possible

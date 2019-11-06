@@ -1,5 +1,15 @@
 # NYT
- 
+
+7/11 - Week 8
+ - Forked Week 7 baseline app
+ - Fixed crash when nyt recieves an article with no image
+ - Added database for books with
+   - Query to add a list of books
+   - Query to get a list of books
+   - Query to get a book by its isbn
+
+---
+
 Currently the baseline app for Week 7 INFS3634.
 
 You will need to know how everything in this app works to be able to continue in Week 8.

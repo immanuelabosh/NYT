@@ -1,4 +1,4 @@
-package com.example.nyt; // <============= CHANGE ME
+package com.example.nyt.Database; // <============= CHANGE ME
 
 import com.example.nyt.model.Article;
 import com.example.nyt.model.Book;

@@ -1,4 +1,4 @@
-package com.example.nyt;
+package com.example.nyt.Database;
 
 import android.content.Context;
 
@@ -31,7 +31,7 @@ public abstract class AppDatabase extends RoomDatabase {
 
         if(instance == null) {
             instance = Room.databaseBuilder(context, AppDatabase.class, "nytDb")
-                    .allowMainThreadQueries()   // <== IMPORTANT TO NOTE:
+                    //.allowMainThreadQueries()   // <== IMPORTANT TO NOTE:
                                                 //     This is NOT correct to do in a completed app.
                                                 //     Next week we will fix it, but for now this
                                                 //     line is necessary for the app to work.

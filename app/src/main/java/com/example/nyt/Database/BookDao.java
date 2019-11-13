@@ -1,4 +1,4 @@
-package com.example.nyt;
+package com.example.nyt.Database;
 
 import androidx.room.Dao;
 import androidx.room.Delete;
@@ -14,17 +14,11 @@ import java.util.List;
 @Dao
 public interface BookDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    public void insert(List<Book> books);
-
-    @Update
-    public void update(Book... books);
-
-    @Delete
-    public void delete(Book books);
+    void insert(List<Book> books);
 
     @Query("SELECT * FROM Book")
-    public List<Book> getAllBooks();
+    List<Book> getAllBooks();
 
     @Query("SELECT * FROM Book WHERE isbn = :isbnID")
-    public Book getBook (long isbnID);
+    Book getBook (long isbnID);
 }

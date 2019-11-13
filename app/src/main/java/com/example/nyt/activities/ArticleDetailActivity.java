@@ -8,7 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.example.nyt.FakeDatabase;
+import com.example.nyt.Database.FakeDatabase;
 import com.example.nyt.R;
 import com.example.nyt.model.Article;
 

@@ -1,6 +1,7 @@
 package com.example.nyt.fragments;
 
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -18,10 +19,9 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.nyt.AppDatabase;
-import com.example.nyt.BookAdapter;
-import com.example.nyt.BookDao;
-import com.example.nyt.FakeDatabase;
+import com.example.nyt.AsyncTasks.InsertBooksAsyncTask;
+import com.example.nyt.Database.AppDatabase;
+import com.example.nyt.Adapters.BookAdapter;
 import com.example.nyt.R;
 import com.example.nyt.model.BestsellerList;
 import com.example.nyt.model.BestsellerListResponse;
@@ -93,9 +93,12 @@ public class BookRecyclerFragment extends Fragment {
                 List<Book> bestsellers = bestsellerList.getBooks();
 
                 // I save my results to the database so I can retrieve it later in my other activities.
-                db.bookDao().insert(bestsellers);
+                //im using an async task so I dont freeze my ui
+                InsertBooksAsyncTask insertBooksAsyncTask = new InsertBooksAsyncTask();
+                insertBooksAsyncTask.setDatabase(db);
+                insertBooksAsyncTask.execute(bestsellers);
 
-                bookAdapter.setData(db.bookDao().getAllBooks());
+                bookAdapter.setData(bestsellers);
                 recyclerView.setAdapter(bookAdapter);
 
                 // It is a good idea to include this line after we are done with the requestQueue.

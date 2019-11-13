@@ -1,4 +1,4 @@
-package com.example.nyt;
+package com.example.nyt.Adapters;
 
 import android.content.Context;
 import android.content.Intent;
@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.nyt.R;
 import com.example.nyt.activities.ArticleDetailActivity;
 import com.example.nyt.model.Article;
 

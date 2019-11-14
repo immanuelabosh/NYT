@@ -1,5 +1,9 @@
 # NYT
 
+14/11 - Week 9
+ - Added Asynctasks for database queries
+---
+
 7/11 - Week 8
  - Forked Week 7 baseline app
  - Fixed crash when nyt recieves an article with no image
